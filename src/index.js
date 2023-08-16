@@ -20,21 +20,6 @@ let render = () => {
     newPage.classList.add('koala-container')
     oldPage.replaceWith(newPage)
 }
-
-// Renders the image of a koala card
-let renderKoalaCardImage = koala => {
-    let imageContainer = document.createElement('div')
-    let koalaImage = document.createElement('img')
-
-    imageContainer.setAttribute('class', 'image')
-
-    koalaImage.setAttribute('src', koala.imageURL)
-
-    imageContainer.append(koalaImage)
-
-    return imageContainer
-}
-
 // Renders the content of a koala card (their name and description)
 let renderKoalaCardContent = koala => {
     let koalaContent = document.createElement('div')
