@@ -1,4 +1,5 @@
 import { koalas } from './koalas'
+import { renderKoalaList } from './renderKoalaList'
 let activeKoala = null
 
 // Changes the active koala, then re-renders the page to display that koala
@@ -18,41 +19,6 @@ let render = () => {
     }
     newPage.classList.add('koala-container')
     oldPage.replaceWith(newPage)
-}
-
-
-// Renders a list of koalas
-let renderKoalaList = koalas => {
-    let koalaContainer = document.createElement('div')
-
-    koalaContainer.setAttribute('class', 'ui items')
-
-    koalas.forEach( koala => {
-        let koalaCard = renderKoalaCard(koala)
-        koalaContainer.append(koalaCard)
-    })
-
-    return koalaContainer
-}
-
-// Renders a card to display a single koala
-let renderKoalaCard = koala => {
-    let koalaCard = document.createElement('div')
-    koalaCard.setAttribute('class', 'item')
-    koalaCard.style.cursor = 'pointer';
-    koalaCard.addEventListener('click', () => {
-        selectKoala(koala)
-    })
-
-    let koalaImage = renderKoalaCardImage(koala)
-    let koalaContent = renderKoalaCardContent(koala)
-
-    koalaCard.append(
-        koalaImage,
-        koalaContent
-    )
-
-    return koalaCard
 }
 
 // Renders the image of a koala card
